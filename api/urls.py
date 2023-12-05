@@ -10,5 +10,5 @@ route.register('posts',views.PostViewset)
 
 urlpatterns = [
     path('',include(route.urls)),
-
+    path('user/list',views.UserViewset.list)
 ]

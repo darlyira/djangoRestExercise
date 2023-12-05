@@ -16,7 +16,7 @@ class Posts(models.Model):
     
     title = models.CharField(null=False,blank=False, max_length=50)
     contexte = models.TextField(null=False,blank=False, max_length=50)
-    user = models.ForeignKey(User,related_name='Posts',related_query_name='Post', on_delete=models.CASCADE)
+    user = models.ForeignKey(User,related_name='posts',related_query_name='post', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField( auto_now=True)
 
@@ -26,8 +26,8 @@ class Posts(models.Model):
 class Comment(models.Model):
     
     content = models.TextField()
-    post = models.ForeignKey(Posts,related_name='Coments',related_query_name='Comment', on_delete=models.CASCADE)
-    user = models.ForeignKey(User,related_name='Commenters',related_query_name='commenter', on_delete=models.CASCADE)
+    post = models.ForeignKey(Posts,related_name='Coment',related_query_name='Comments', on_delete=models.CASCADE)
+    user = models.ForeignKey(User,related_name='Commenter',related_query_name='commenters', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField( auto_now=True)
 
