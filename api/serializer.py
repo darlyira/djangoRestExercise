@@ -1,17 +1,63 @@
 from rest_framework import serializers
-from socialnetwork.models import User,Posts,Comment
 
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = '__all__'
+from .models.publications import (
+    ErpIncidentReport,
+    ErpPublication,
+    ErpPublicationCategorie,
+    ErpPublicationComment,
+    ErpPublicationReaction,
+    ErpPublicationTag,
+    ErpPublicationType,
+)
 
-class PostSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Posts
-        fields = '__all__'
 
-class CommentSerializer(serializers.ModelSerializer):
+class ErpPublicationTypeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Comment
-        fields = '__all__'
+        model = ErpPublicationType
+        fields = "__all__"
+
+
+class ErpPublicationCategorieSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ErpPublicationCategorie
+        fields = "__all__"
+
+
+class ErpPublicationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ErpPublication
+        fields = "__all__"
+
+
+class ErpPublicationCommentSerialiser(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = ErpPublicationComment
+        fields = "__all__"
+
+
+class ErpIncidentReportSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ErpIncidentReport
+        fields = "__all__"
+
+
+class ErpPublicationReactionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ErpPublicationReaction
+        fields = "__all__"
+
+
+class ErpPublicationTagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ErpPublicationTag
+        fields = "__all__"
+
+
+class ErpPublicationDetaillsSerializer(serializers.HyperlinkedModelSerializer):
+    category = ErpPublicationCategorieSerializer()
+    publicaion_type = ErpPublicationTypeSerializer()
+    comments = ErpPublicationCommentSerialiser()
+
+    class Meta:
+        model = ErpPublication
+        fields = ["title", "client", "codument", "co_publisher", "caption", "publication_type", "category", "comments"]
