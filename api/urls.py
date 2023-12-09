@@ -5,10 +5,15 @@ from . import views
 app_name= "socialnetwork"
 route = DefaultRouter()
 route.register('user',views.UserViewset)
-route.register('comment',views.CommentViewset)
+route.register('commentlist',views.CommentListViewset)
 route.register('posts',views.PostViewset)
+
 
 urlpatterns = [
     path('',include(route.urls)),
-    path('user/list',views.UserViewset.list)
+    path('user/list',views.UserViewset.list),
+    path('commentadd/',views.ajoutercommentaire),
+    path('postdetails/<int:id>',views.postDetaills),
+    
+    
 ]
