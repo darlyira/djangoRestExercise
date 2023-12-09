@@ -4,7 +4,7 @@ from socialnetwork.models import User,Posts,Comment
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ['id','name']
+        fields = ['name']
 
 class UserdetaillsSerializer(serializers.ModelSerializer):
     class Meta :
