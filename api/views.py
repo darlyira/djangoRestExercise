@@ -33,7 +33,8 @@ def postDetaills(request, id):
         seriazer= CommentSerializer(query,many=True)
         post = Posts.objects.get(id=id)
         postserializer = PostSerializer(post)
-        return Response({"Post":postserializer.data,"coments":seriazer.data})         
+        return Response({"Post":postserializer.data,"coments":seriazer.data})
+
 @api_view(['POST'])
 def ajoutercommentaire(request):    
     if request.method == 'POST':
