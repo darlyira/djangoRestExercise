@@ -28,7 +28,7 @@ class PostViewset(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
 @api_view(['GET'])
-def postDetaills(request, id):
+def postDetails(request, id):
         query = Comment.objects.filter(post= id)
         seriazer= CommentSerializer(query,many=True)
         post = Posts.objects.get(id=id)
