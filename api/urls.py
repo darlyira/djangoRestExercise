@@ -13,7 +13,7 @@ urlpatterns = [
     path('',include(route.urls)),
     path('user/list',views.UserViewset.list),
     path('commentadd/',views.ajoutercommentaire),
-    path('postdetails/<int:id>',views.postDetaills),
+    path('postdetails/<int:id>',views.postDetails),
     
     
 ]
