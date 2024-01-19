@@ -16,11 +16,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+<<<<<<< HEAD
                                                                                                                                                                                                                                                 
+=======
+from api import views
+from socialnetwork import views as social_views
+
+>>>>>>> 279890548c8620a20153fa1887315a9e2b07fbaf
 urlpatterns = [
     path('socialnetwork/',include('socialnetwork.urls')),
     path('admin/', admin.site.urls),
     path('social/',include('api.urls')),
+<<<<<<< HEAD
     
 #     path('authentication/',include('dj_rest_auth.urls'))
+=======
+    path('',social_views.homepage),
+    path('authentication/',include('dj_rest_auth.urls'))
+>>>>>>> 279890548c8620a20153fa1887315a9e2b07fbaf
 ]

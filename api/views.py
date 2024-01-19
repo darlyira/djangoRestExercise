@@ -14,6 +14,7 @@ class UserViewset(viewsets.GenericViewSet,drf_mixins.CreateModelMixin,drf_mixins
 class CommentViewset(viewsets.GenericViewSet,drf_mixins.CreateModelMixin,drf_mixins.ListModelMixin,drf_mixins.RetrieveModelMixin):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 class PostViewset(viewsets.GenericViewSet,drf_mixins.CreateModelMixin,drf_mixins.ListModelMixin,drf_mixins.RetrieveModelMixin):
     queryset =Posts.objects.raw('select socialnetwork_posts.id,socialnetwork_posts.title,socialnetwork_posts.contexte,socialnetwork_user.name from socialnetwork_posts,socialnetwork_user where socialnetwork_posts.user_id=socialnetwork_user.id')

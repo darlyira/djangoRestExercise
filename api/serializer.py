@@ -8,11 +8,19 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['name','user_name','email','password','adress','tel','posts']
 
 class PostSerializer(serializers.ModelSerializer):
+    user = UserSerializer()
     class Meta:
         model = Posts
-        fields = '__all__'
+        fields = ['id','title','contexte','created_at','user']
+        
+class CommentAdditionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model= Comment 
+        fields = '__all__'       
 
-class CommentSerializer(serializers.ModelSerializer):
+class CommentSerializer(serializers.HyperlinkedModelSerializer):
+    user= UserSerializer()
+    # post = PostSerializer()
     class Meta:
         model = Comment
         fields = '__all__'
