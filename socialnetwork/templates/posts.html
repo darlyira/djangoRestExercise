@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table,th,td{
+            border: 1px solid #000;
+            border-collapse: collapse;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>id</th>
+        <th>Title</th>
+        <th>Contexte</th>
+        <th>User</th>
+        <th>posted at</th>
+        <th>Action</th>
+    </tr>
+    {% for item in Posts %}
+<tr>
+<td>{{item.id}}</td>
+<td>{{item.title}}</td>
+<td>{{item.contexte}}</td>
+<td>{{item.user}}</td>
+<td>{{item.created_at}}</td>
+<td>
+    <a href="details/{{item.id}}">Detailles</a>
+    <a href="comment/{{item.id}}">new comment</a>
+</td>
+</tr>
+    
+
+{% endfor %}
+</table>
+
+<a href="newPost/">New post</a>
+
+</body>
+</html>

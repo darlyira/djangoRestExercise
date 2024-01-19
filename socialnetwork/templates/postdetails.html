@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        table,th,td{
+            border: 1px solid #000;
+            border-collapse: collapse;
+        }
+    </style>
+  </head>
+  <body>
+    {%if details %}
+    <table>
+        <tr>
+          <th>id</th>
+          <th>Contexte</th>
+          <th>User</th>
+          <th>posted at</th>
+          <!-- <th>Post</th> -->
+        </tr>
+        {% for item in details %}
+  
+        <tr>
+          <td>{{item.id}}</td>
+          <td>{{item.content}}</td>
+          <td>{{item.user}}</td>
+          <td>{{item.created_at}}</td>
+          <!-- <td>{{item.post}}</td> -->
+        </tr>
+  
+        {% endfor %}
+      </table>
+      {% else %}
+
+      <p>No details avable</p>
+      {% endif %}
+  </body>
+</html>
